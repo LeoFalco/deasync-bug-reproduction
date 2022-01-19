@@ -1,0 +1,26 @@
+{
+  "name": "deasync-bug-reproduction",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeoFalco/deasync-bug-reproduction.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeoFalco/deasync-bug-reproduction/issues"
+  },
+  "homepage": "https://github.com/LeoFalco/deasync-bug-reproduction#readme",
+  "dependencies": {
+    "deasync": "0.1.15"
+  },
+  "devDependencies": {
+    "jest": "27.4.7"
+  }
+}
