@@ -1,0 +1,29 @@
+name: Continuous integration/deployment
+
+on:
+  - push
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}-${{ github.event.head_commit.author.email }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        node: ['10.x', '12.x', '14.x',  '16.x',  '18.x']
+      fail-fast: true
+    timeout-minutes: 1
+    runs-on:  ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+
+      - run: npm ci
+
+      - run: npm test
